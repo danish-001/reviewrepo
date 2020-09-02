@@ -4,6 +4,8 @@ import { AppLoading } from 'expo'
 
 import Navigator from './routes/drawer'
 
+console.disableYellowBox = true
+
 const getfonts = async () => {
   return await Font.loadAsync({
     'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
