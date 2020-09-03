@@ -6,6 +6,8 @@ import {
   Text,
   Modal,
   StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
@@ -104,15 +106,17 @@ function Home({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <Modal visible={modelOpen} animationType="slide">
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name="close"
-            size={44}
-            style={{ ...styles.modalToggle, ...styles.modalClose }}
-            onPress={() => setModelOpen(false)}
-          />
-          <ReviewForm addReview={addReview} />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name="close"
+              size={44}
+              style={{ ...styles.modalToggle, ...styles.modalClose }}
+              onPress={() => setModelOpen(false)}
+            />
+            <ReviewForm addReview={addReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
 
       <FlatList
