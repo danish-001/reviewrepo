@@ -23,6 +23,13 @@ export const globalStyles = StyleSheet.create({
     margin: 10,
     fontSize: 18,
   },
+  errorText: {
+    color: 'crimson',
+    fontWeight: 'bold',
+    marginBottom: 4,
+    marginTop: 2,
+    textAlign: 'center',
+  },
 })
 
 export const RATE = require('../assets/2-star.png')
