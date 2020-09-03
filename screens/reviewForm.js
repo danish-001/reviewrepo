@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { TextInput, Button, View, Text } from 'react-native'
+import {
+  TextInput,
+  Button,
+  View,
+  Text,
+  KeyboardAvoidingView,
+  ScrollView,
+} from 'react-native'
 import { globalStyles } from '../styles/global'
 import { Formik } from 'formik'
 import * as yup from 'yup'
@@ -29,40 +36,71 @@ const ReviewForm = ({ addReview }) => {
       >
         {(props) => (
           <View>
-            <TextInput
-              style={globalStyles.input}
-              placeholder="ReView Title (e.g. movie / series)"
-              onChangeText={props.handleChange('title')}
-              value={props.values.title}
-              onBlur={props.handleBlur('title')}
-            />
-            <Text style={globalStyles.errorText}>
-              {props.touched.title && props.errors.title}
-            </Text>
-            <TextInput
-              multiline
-              minHeight={100}
-              style={globalStyles.input}
-              placeholder="Description"
-              onChangeText={props.handleChange('body')}
-              value={props.values.body}
-              onBlur={props.handleBlur('body')}
-            />
-            <Text style={globalStyles.errorText}>
-              {props.touched.body && props.errors.body}
-            </Text>
-            <TextInput
-              style={globalStyles.input}
-              placeholder="Rating (1-5)"
-              onChangeText={props.handleChange('rating')}
-              value={props.values.rating}
-              onBlur={props.handleBlur('rating')}
-              keyboardType="numeric"
-            />
-            <Text style={globalStyles.errorText}>
-              {props.touched.rating && props.errors.rating}
-            </Text>
-            <FlatButton text="submit" onPress={props.handleSubmit} />
+            <KeyboardAvoidingView
+              behavior="position"
+              keyboardVerticalOffset={120}
+            >
+              <ScrollView>
+                <TextInput
+                  style={globalStyles.input}
+                  placeholder="ReView Title (e.g. movie / series)"
+                  onChangeText={props.handleChange('title')}
+                  value={props.values.title}
+                  onBlur={props.handleBlur('title')}
+                />
+                <Text style={globalStyles.errorText}>
+                  {props.touched.title && props.errors.title}
+                </Text>
+                <TextInput
+                  multiline
+                  minHeight={100}
+                  style={globalStyles.input}
+                  placeholder="Description"
+                  onChangeText={props.handleChange('body')}
+                  value={props.values.body}
+                  onBlur={props.handleBlur('body')}
+                />
+                <Text style={globalStyles.errorText}>
+                  {props.touched.body && props.errors.body}
+                </Text>
+                <TextInput
+                  style={globalStyles.input}
+                  placeholder="Rating (1-5)"
+                  onChangeText={props.handleChange('rating')}
+                  value={props.values.rating}
+                  onBlur={props.handleBlur('rating')}
+                  keyboardType="numeric"
+                />
+                <Text style={globalStyles.errorText}>
+                  {props.touched.rating && props.errors.rating}
+                </Text>
+
+                <TextInput
+                  style={globalStyles.input}
+                  placeholder="Rating (1-5)"
+                  onChangeText={props.handleChange('rating')}
+                  value={props.values.rating}
+                  onBlur={props.handleBlur('rating')}
+                  keyboardType="numeric"
+                />
+                <Text style={globalStyles.errorText}>
+                  {props.touched.rating && props.errors.rating}
+                </Text>
+
+                <TextInput
+                  style={globalStyles.input}
+                  placeholder="Rating (1-5)"
+                  onChangeText={props.handleChange('rating')}
+                  value={props.values.rating}
+                  onBlur={props.handleBlur('rating')}
+                  keyboardType="numeric"
+                />
+                <Text style={globalStyles.errorText}>
+                  {props.touched.rating && props.errors.rating}
+                </Text>
+                <FlatButton text="submit" onPress={props.handleSubmit} />
+              </ScrollView>
+            </KeyboardAvoidingView>
           </View>
         )}
       </Formik>

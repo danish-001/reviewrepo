@@ -14,8 +14,6 @@ import { MaterialIcons } from '@expo/vector-icons'
 import Card from '../shared/card'
 import { globalStyles } from '../styles/global'
 import ReviewForm from './reviewForm'
-import { ICONS } from '../Constants/icons'
-import { ROUTES } from '../src/navigation/routes'
 
 function Home({ navigation }) {
   const [modelOpen, setModelOpen] = useState(false)
@@ -125,7 +123,7 @@ function Home({ navigation }) {
         data={reviews}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate(ROUTES.REVIEW_DETAIL, item)}
+            onPress={() => navigation.navigate('ReviewDetail', item)}
           >
             <Card>
               <Text style={globalStyles.titleText}>{item.title}</Text>
@@ -135,7 +133,7 @@ function Home({ navigation }) {
       />
 
       <MaterialIcons
-        name={ICONS.ADD}
+        name="add"
         size={44}
         style={styles.modalToggle}
         onPress={() => setModelOpen(true)}
@@ -143,23 +141,5 @@ function Home({ navigation }) {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  modalToggle: {
-    marginTop: 2,
-    borderWidth: 1,
-    borderColor: '#f2f2f2',
-    borderRadius: 10,
-    padding: 10,
-    alignSelf: 'center',
-  },
-  modalClose: {
-    marginTop: 50,
-    justifyContent: 'center',
-  },
-  modalContent: {
-    flex: 1,
-  },
-})
 
 export default Home
