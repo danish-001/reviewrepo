@@ -10,7 +10,7 @@ function ReviewDetails({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <Card>
-        <Text style={globalStyles.titleText}>
+        <Text style={[globalStyles.titleText, globalStyles.Title]}>
           {navigation.getParam('title')}
         </Text>
         <Text style={globalStyles.titleText}>

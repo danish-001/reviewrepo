@@ -83,7 +83,7 @@ function Home({ navigation }) {
       title: 'Black Panther',
       rating: 4,
       body:
-        'An amazing Marvel movie showing you the some of traditions of the african tribes with perfect CGI',
+        'An amazing Marvel movie showing you the some of traditions of the african tribes and a perfect CGI journey',
       key: '10',
     },
     {

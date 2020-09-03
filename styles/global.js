@@ -30,6 +30,10 @@ export const globalStyles = StyleSheet.create({
     marginTop: 2,
     textAlign: 'center',
   },
+  Title: {
+    fontWeight: 'bold',
+    fontSize: 38,
+  },
 })
 
 export const RATE = require('../assets/2-star.png')
