@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
-
+import { Provider } from 'react-redux'
+import store from './screens/store/store'
 import Navigator from './routes/drawer'
 
 console.disableYellowBox = true
@@ -17,7 +18,11 @@ export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false)
 
   if (fontsLoaded) {
-    return <Navigator />
+    return (
+      <Provider store={store}>
+        <Navigator />
+      </Provider>
+    )
   } else {
     return (
       <AppLoading startAsync={getfonts} onFinish={() => setFontsLoaded(true)} />
