@@ -15,7 +15,7 @@ export const validate = (values) => {
     errors.rating = 'Please give it a rating'
   } else if (isNaN(Number(values.rating))) {
     errors.rating = 'Rating must be a number'
-  } else if (Number(values.rating) < 0 || Number(values.rating) > 5) {
+  } else if (Number(values.rating) <= 0 || Number(values.rating) > 5) {
     errors.rating = 'Rating must be between (1-5)'
   }
   return errors

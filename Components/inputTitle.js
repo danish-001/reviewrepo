@@ -4,7 +4,7 @@ import { globalStyles } from '../styles/global'
 
 const InputTitle = (props) => {
   const { input, meta } = props
-  console.log({ meta })
+
   return (
     <View>
       <TextInput
