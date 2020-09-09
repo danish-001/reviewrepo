@@ -4,9 +4,7 @@ import { globalStyles } from '../styles/global'
 import { Field, reduxForm } from 'redux-form'
 import FlatButton from '../shared/button'
 
-import InputTitle from '../Components/InputTitle'
-import InputDescription from '../Components/InputDescription'
-import InputRating from '../Components/InputRating'
+import InputField from '../Components/InputField'
 import { validate } from '../validation/validation'
 
 const ReviewForm = ({ addReview, handleSubmit }) => {
@@ -18,21 +16,28 @@ const ReviewForm = ({ addReview, handleSubmit }) => {
     <ScrollView keyboardShouldPersistTaps="handled">
       <KeyboardAvoidingView>
         <View style={globalStyles.container}>
-          <Field
-            name="title"
-            component={InputTitle}
-            placeholder="ReView Title (e.g. movie / series)"
-          />
           <View>
             <Field
-              name="body"
-              component={InputDescription}
-              placeholder="Description"
+              name="title"
+              component={InputField}
+              placeholder="ReView Title (e.g. movie / series)"
             />
+          </View>
+          <View>
+            <Field
+              multiline
+              name="body"
+              component={InputField}
+              placeholder="Description"
+              height={140}
+            />
+          </View>
+          <View>
             <Field
               name="rating"
-              component={InputRating}
+              component={InputField}
               placeholder="Rating (1-5)"
+              keyboardType="numeric"
             />
           </View>
           <View>

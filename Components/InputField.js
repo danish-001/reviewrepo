@@ -2,20 +2,19 @@ import React from 'react'
 import { View, TextInput, Text } from 'react-native'
 import { globalStyles } from '../styles/global'
 
-function InputDescription(props) {
-  const { input, meta, placeholder } = props
-
+const InputField = (props) => {
+  const { placeholder, meta, input, multiline, height, keyboardType } = props
   return (
     <View>
       <TextInput
-        multiline
         style={globalStyles.input}
         placeholder={placeholder}
-        onChangeText={input.onChange}
+        onChange={input.onChange}
         value={input.value}
-        height={140}
+        multiline={multiline}
+        height={height}
+        keyboardType={keyboardType}
       />
-
       {meta.error && meta.submitFailed && (
         <Text style={globalStyles.errorText}>{meta.error}</Text>
       )}
@@ -23,4 +22,4 @@ function InputDescription(props) {
   )
 }
 
-export default InputDescription
+export default InputField
