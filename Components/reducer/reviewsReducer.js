@@ -93,13 +93,16 @@ const initialState = {
   ],
 }
 
-const reviewsReducer = (state = { initialState }, action) => {
+const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_REVIEW:
       return {
         ...state,
-        reviews: [],
+        reviews: [...[action.payload.review], ...state.reviews],
       }
+
+    default:
+      return { ...state }
   }
 }
 

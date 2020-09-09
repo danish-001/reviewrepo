@@ -4,6 +4,7 @@ import { AppLoading } from 'expo'
 import { Provider } from 'react-redux'
 import store from './screens/store/store'
 import Navigator from './routes/drawer'
+import { View, Text } from 'react-native'
 
 console.disableYellowBox = true
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 
-import { globalStyles, images, RATE } from '../styles/global'
+import { globalStyles, images } from '../styles/global'
 import Card from '../shared/card'
 
 function ReviewDetails({ navigation }) {
