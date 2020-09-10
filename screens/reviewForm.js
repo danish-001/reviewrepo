@@ -1,15 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ScrollView, View, KeyboardAvoidingView } from 'react-native'
 import { globalStyles } from '../styles/global'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, change } from 'redux-form'
 import FlatButton from '../shared/button'
 
 import InputField from '../Components/InputField'
 import { validate } from '../validation/validation'
+import { EDIT_REVIEW } from '../Components/reducer/ReviewActionsTypes'
 
-const ReviewForm = ({ addReview, handleSubmit }) => {
+const ReviewComponent = ({
+  addReview,
+  handleSubmit,
+  buttonTitle = 'SUBMIT',
+  editReview,
+  dispatch,
+  defaultValues,
+}) => {
+  useEffect(() => {
+    if (defaultValues) {
+      dispatch(change('reviewForm', 'key', defaultValues.key))
+      dispatch(change('reviewForm', 'title', defaultValues.title))
+      dispatch(change('reviewForm', 'body', defaultValues.body))
+      dispatch(change('reviewForm', 'rating', defaultValues.rating.toString()))
+      return () => {}
+    }
+  }, [])
+
   const onSubmit = (values) => {
-    addReview(values)
+    if (addReview) {
+      addReview(values)
+    } else if (editReview) {
+      editReview(values)
+    }
   }
 
   return (
@@ -41,7 +63,7 @@ const ReviewForm = ({ addReview, handleSubmit }) => {
             />
           </View>
           <View>
-            <FlatButton text="submit" onPress={handleSubmit(onSubmit)} />
+            <FlatButton text={buttonTitle} onPress={handleSubmit(onSubmit)} />
           </View>
         </View>
       </KeyboardAvoidingView>
@@ -52,4 +74,4 @@ const ReviewForm = ({ addReview, handleSubmit }) => {
 export default reduxForm({
   form: 'reviewForm',
   validate,
-})(ReviewForm)
+})(ReviewComponent)

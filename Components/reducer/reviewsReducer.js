@@ -100,7 +100,24 @@ const reviewsReducer = (state = initialState, action) => {
         ...state,
         reviews: [...[action.payload.review], ...state.reviews],
       }
+    case types.EDIT_REVIEW:
+      const item = action.payload.review
+      const reviewsList = []
 
+      if (state.reviews) {
+        state.reviews.map((review) => {
+          const { key } = review
+          let value = review
+
+          if (key === item.key) value = item
+          reviewsList.push(value)
+        })
+      }
+
+      return {
+        ...state,
+        reviews: reviewsList,
+      }
     default:
       return { ...state }
   }

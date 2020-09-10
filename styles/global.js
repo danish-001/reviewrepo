@@ -33,6 +33,13 @@ export const globalStyles = StyleSheet.create({
   Title: {
     fontWeight: 'bold',
     fontSize: 38,
+    flex: 9,
+  },
+  editButtonView: {
+    flexDirection: 'row',
+  },
+  editButton: {
+    flex: 1,
   },
 })
 

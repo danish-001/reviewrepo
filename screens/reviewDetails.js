@@ -1,18 +1,57 @@
-import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
-
+import React, { useState } from 'react'
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Modal,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Alert,
+} from 'react-native'
+import { MaterialIcons } from '@expo/vector-icons'
 import { globalStyles, images } from '../styles/global'
 import Card from '../shared/card'
+import { validate } from '../validation/validation'
+import ReviewForm from './reviewForm'
+import { connect } from 'react-redux'
+import { editReviews } from '../Components/actions/index'
 
-function ReviewDetails({ navigation }) {
+function ReviewDetails({ navigation, editReviews }) {
+  const [modelOpen, setModelOpen] = useState(false)
+
   const rating = navigation.getParam('rating')
+
+  const openEditModal = (values) => {
+    setModelOpen(true)
+  }
+
+  const editReview = (review) => {
+    editReviews({ review })
+    navigation.setParams(review)
+    setModelOpen(false)
+  }
+
+  const values = {
+    title: navigation.getParam('title'),
+    body: navigation.getParam('body'),
+    rating: navigation.getParam('rating'),
+    key: navigation.getParam('key'),
+  }
 
   return (
     <View style={globalStyles.container}>
       <Card>
-        <Text style={[globalStyles.titleText, globalStyles.Title]}>
-          {navigation.getParam('title')}
-        </Text>
+        <View style={globalStyles.editButtonView}>
+          <Text style={[globalStyles.titleText, globalStyles.Title]}>
+            {navigation.getParam('title')}
+          </Text>
+          <MaterialIcons
+            name="edit"
+            size={32}
+            onPress={() => openEditModal()}
+          />
+        </View>
         <Text style={globalStyles.titleText}>
           {navigation.getParam('body')}
         </Text>
@@ -21,6 +60,27 @@ function ReviewDetails({ navigation }) {
           <Image source={images.ratings[rating]} />
         </View>
       </Card>
+
+      <View style={globalStyles.container}>
+        <Modal visible={modelOpen} animationType="slide">
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.modalContent}>
+              <MaterialIcons
+                name="close"
+                size={44}
+                style={{ ...styles.modalToggle, ...styles.modalClose }}
+                onPress={() => setModelOpen(false)}
+              />
+              <ReviewForm
+                buttonTitle="UPDATE"
+                // onPress={() => editReview()}
+                editReview={editReview}
+                defaultValues={values}
+              />
+            </View>
+          </TouchableWithoutFeedback>
+        </Modal>
+      </View>
     </View>
   )
 }
@@ -34,6 +94,28 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#eee',
   },
+  modalToggle: {
+    marginTop: 2,
+    borderWidth: 1,
+    borderColor: '#f2f2f2',
+    borderRadius: 10,
+    padding: 10,
+    alignSelf: 'center',
+  },
+  modalClose: {
+    marginTop: 50,
+    justifyContent: 'center',
+  },
 })
 
-export default ReviewDetails
+const mapStateToProps = (state) => {
+  return {
+    reviews: state.reviewsReducer.reviews,
+  }
+}
+
+const mapDispatchToProps = {
+  editReviews,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewDetails)

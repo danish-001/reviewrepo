@@ -10,7 +10,7 @@ const InputField = (props) => {
         style={globalStyles.input}
         placeholder={placeholder}
         onChange={input.onChange}
-        value={input.value}
+        defaultValue={input.value}
         multiline={multiline}
         height={height}
         keyboardType={keyboardType}
