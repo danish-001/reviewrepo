@@ -24,9 +24,6 @@ function Home({ navigation, reviews, addReviews }) {
 
   const addReview = (review) => {
     review.key = Math.random().toString()
-    // setReviews((currentReview) => {
-    //   return [review, ...currentReview]
-    // })
     addReviews({ review })
     setModelOpen(false)
   }
