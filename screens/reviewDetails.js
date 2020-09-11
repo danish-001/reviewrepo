@@ -12,7 +12,6 @@ import {
 import { MaterialIcons } from '@expo/vector-icons'
 import { globalStyles, images } from '../styles/global'
 import Card from '../shared/card'
-import { validate } from '../validation/validation'
 import ReviewForm from './reviewForm'
 import { connect } from 'react-redux'
 import { editReviews } from '../Components/actions/index'
@@ -37,13 +36,14 @@ function ReviewDetails({ navigation, editReviews }) {
     body: navigation.getParam('body'),
     rating: navigation.getParam('rating'),
     key: navigation.getParam('key'),
+    author: navigation.getParam('author'),
   }
 
   return (
     <View style={globalStyles.container}>
       <Card>
         <View style={globalStyles.editButtonView}>
-          <Text style={[globalStyles.titleText, globalStyles.Title]}>
+          <Text style={[globalStyles.titleText, globalStyles.title]}>
             {navigation.getParam('title')}
           </Text>
           <MaterialIcons
@@ -55,6 +55,11 @@ function ReviewDetails({ navigation, editReviews }) {
         <Text style={globalStyles.titleText}>
           {navigation.getParam('body')}
         </Text>
+        <View>
+          <Text style={globalStyles.authorName}>
+            - {navigation.getParam('author')}
+          </Text>
+        </View>
         <View style={styles.rating}>
           <Text style={globalStyles.titleText}>Rating :-</Text>
           <Image source={images.ratings[rating]} />

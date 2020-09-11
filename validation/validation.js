@@ -18,5 +18,9 @@ export const validate = (values) => {
   } else if (Number(values.rating) <= 0 || Number(values.rating) > 5) {
     errors.rating = 'Rating must be between (1-5)'
   }
+
+  if (!values.author) {
+    errors.author = 'Enter a name (e.g. Danish Sheikh)'
+  }
   return errors
 }

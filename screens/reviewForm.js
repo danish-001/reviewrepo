@@ -6,7 +6,6 @@ import FlatButton from '../shared/button'
 
 import InputField from '../Components/InputField'
 import { validate } from '../validation/validation'
-import { EDIT_REVIEW } from '../Components/reducer/ReviewActionsTypes'
 
 const ReviewComponent = ({
   addReview,
@@ -22,6 +21,7 @@ const ReviewComponent = ({
       dispatch(change('reviewForm', 'title', defaultValues.title))
       dispatch(change('reviewForm', 'body', defaultValues.body))
       dispatch(change('reviewForm', 'rating', defaultValues.rating.toString()))
+      dispatch(change('reviewForm', 'author', defaultValues.author))
       return () => {}
     }
   }, [])
@@ -60,6 +60,13 @@ const ReviewComponent = ({
               component={InputField}
               placeholder="Rating (1-5)"
               keyboardType="numeric"
+            />
+          </View>
+          <View>
+            <Field
+              name="author"
+              component={InputField}
+              placeholder="Enter Your Name"
             />
           </View>
           <View>

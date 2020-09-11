@@ -30,7 +30,7 @@ export const globalStyles = StyleSheet.create({
     marginTop: 2,
     textAlign: 'center',
   },
-  Title: {
+  title: {
     fontWeight: 'bold',
     fontSize: 38,
     flex: 9,
@@ -40,6 +40,12 @@ export const globalStyles = StyleSheet.create({
   },
   editButton: {
     flex: 1,
+  },
+  authorName: {
+    paddingTop: 4,
+    color: 'gray',
+    fontSize: 22,
+    textAlign: 'right',
   },
 })
 
