@@ -7,7 +7,7 @@ const initialState = {
       rating: 5,
       author: 'Danish Sheikh',
       body:
-        'This TV series is about a simple chemistry teacher who gets cancer which eventually gets him cooking meth with one of his students to earn more money for his family before he dies and that causes an interesting journey with lots of drama and thrill... Amazing storyline, acting, characters, cinematography and direction.',
+        'This TV series is about a simple chemistry teacher who gets cancer which eventually gets him cooking meth with one of his former students to earn more money for his family before he dies and that causes an interesting journey with lots of drama and thrill... Amazing storyline, acting, characters, cinematography and direction.',
       key: Math.random(),
     },
     {
