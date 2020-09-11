@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  ScrollView,
 } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 import { globalStyles, images } from '../styles/global'
@@ -40,53 +41,55 @@ function ReviewDetails({ navigation, editReviews }) {
   }
 
   return (
-    <View style={globalStyles.container}>
-      <Card>
-        <View style={globalStyles.editButtonView}>
-          <Text style={[globalStyles.titleText, globalStyles.title]}>
-            {navigation.getParam('title')}
-          </Text>
-          <MaterialIcons
-            name="edit"
-            size={32}
-            onPress={() => openEditModal()}
-          />
-        </View>
-        <Text style={globalStyles.titleText}>
-          {navigation.getParam('body')}
-        </Text>
-        <View>
-          <Text style={globalStyles.authorName}>
-            - {navigation.getParam('author')}
-          </Text>
-        </View>
-        <View style={styles.rating}>
-          <Text style={globalStyles.titleText}>Rating :-</Text>
-          <Image source={images.ratings[rating]} />
-        </View>
-      </Card>
-
+    <ScrollView>
       <View style={globalStyles.container}>
-        <Modal visible={modelOpen} animationType="slide">
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={styles.modalContent}>
-              <MaterialIcons
-                name="close"
-                size={44}
-                style={{ ...styles.modalToggle, ...styles.modalClose }}
-                onPress={() => setModelOpen(false)}
-              />
-              <ReviewForm
-                buttonTitle="UPDATE"
-                // onPress={() => editReview()}
-                editReview={editReview}
-                defaultValues={values}
-              />
-            </View>
-          </TouchableWithoutFeedback>
-        </Modal>
+        <Card>
+          <View style={globalStyles.editButtonView}>
+            <Text style={[globalStyles.titleText, globalStyles.title]}>
+              {navigation.getParam('title')}
+            </Text>
+            <MaterialIcons
+              name="edit"
+              size={32}
+              onPress={() => openEditModal()}
+            />
+          </View>
+          <Text style={globalStyles.titleText}>
+            {navigation.getParam('body')}
+          </Text>
+          <View>
+            <Text style={globalStyles.authorName}>
+              - {navigation.getParam('author')}
+            </Text>
+          </View>
+          <View style={styles.rating}>
+            <Text style={globalStyles.titleText}>Rating :-</Text>
+            <Image source={images.ratings[rating]} />
+          </View>
+        </Card>
+
+        <View style={globalStyles.container}>
+          <Modal visible={modelOpen} animationType="slide">
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <View style={styles.modalContent}>
+                <MaterialIcons
+                  name="close"
+                  size={44}
+                  style={{ ...styles.modalToggle, ...styles.modalClose }}
+                  onPress={() => setModelOpen(false)}
+                />
+                <ReviewForm
+                  buttonTitle="UPDATE"
+                  // onPress={() => editReview()}
+                  editReview={editReview}
+                  defaultValues={values}
+                />
+              </View>
+            </TouchableWithoutFeedback>
+          </Modal>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
