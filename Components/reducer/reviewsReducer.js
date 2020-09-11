@@ -7,7 +7,7 @@ const initialState = {
       rating: 5,
       author: 'Danish Sheikh',
       body:
-        'This TV series is about a simple chemistry teacher who gets cancer which eventually gets him cooking meth with one of his students to earn more money for his family before he dies, Amazing storyline, acting, characters, cinematography and direction',
+        'This TV series is about a simple chemistry teacher who gets cancer which eventually gets him cooking meth with one of his students to earn more money for his family before he dies and that causes an interesting journey with lots of drama and thrill... Amazing storyline, acting, characters, cinematography and direction.',
       key: Math.random(),
     },
     {
@@ -15,21 +15,21 @@ const initialState = {
       rating: 5,
       author: 'Danish Sheikh',
       body:
-        'A masterpiece by Christopher Nolan that exceeds every aspect of the cinemetography, Acting and Direction',
+        'A masterpiece by Christopher Nolan that exceeds every aspect of the cinemetography, Acting and Direction.',
       key: Math.random(),
     },
     {
       title: 'Inception',
       rating: 5,
       author: 'Danish Sheikh',
-      body: 'A movie that will blow your mind and leave you speechless',
+      body: 'A movie that will blow your mind and leave you speechless.',
       key: Math.random(),
     },
     {
       title: 'Avengers : Endgame',
       rating: 5,
       author: 'Danish Sheikh',
-      body: 'A movie filled with emotions and a true sci-fi journey',
+      body: 'A movie filled with emotions and a true sci-fi journey.',
       key: Math.random(),
     },
     {
@@ -37,7 +37,7 @@ const initialState = {
       rating: 5,
       author: 'Danish Sheikh',
       body:
-        'A Raj Kumar Hirani movie on Engineering students life that shows what an Engineer student goes through',
+        'A Raj Kumar Hirani movie on Engineering students life that shows what an Engineer student goes through.',
       key: Math.random(),
     },
     {
@@ -53,7 +53,7 @@ const initialState = {
       rating: 5,
       author: 'Danish Sheikh',
       body:
-        'A Raj Kumar Hirani movie that point outs the pros and cons of a religion',
+        'A Raj Kumar Hirani movie that point outs the pros and cons of a religion.',
       key: Math.random(),
     },
     {
@@ -61,14 +61,14 @@ const initialState = {
       rating: 4,
       author: 'Danish Sheikh',
       body:
-        'A well made movie from Marvel that shows amazing one to one combats in an excellent way',
+        'A well made movie from Marvel that shows amazing one to one combats in an excellent way.',
       key: Math.random(),
     },
     {
       title: 'Race 3',
       rating: 1,
       author: 'Danish Sheikh',
-      body: 'A movie that detroyed a movie series that was doing much better',
+      body: 'A movie that detroyed a movie series that was doing much better.',
       key: Math.random(),
     },
     {
@@ -76,7 +76,7 @@ const initialState = {
       rating: 2,
       author: 'Danish Sheikh',
       body:
-        'Successfully ruined a classic comedy movie series(both Double Dhamaal and this one)',
+        'Successfully ruined a classic comedy movie series(both Double Dhamaal and this one).',
       key: Math.random(),
     },
     {
@@ -84,7 +84,7 @@ const initialState = {
       rating: 5,
       author: 'Danish Sheikh',
       body:
-        'Another masterpiece by Christopher Nolan leave you totally speechless',
+        'Another masterpiece by Christopher Nolan leave you totally speechless.',
       key: Math.random(),
     },
     {
@@ -92,7 +92,7 @@ const initialState = {
       rating: 4,
       author: 'Danish Sheikh',
       body:
-        'An amazing Marvel movie showing you some of the traditions of the african tribes and a perfect CGI journey',
+        'An amazing Marvel movie showing you some of the traditions of the african tribes and a perfect CGI journey.',
       key: Math.random(),
     },
     {
@@ -100,7 +100,7 @@ const initialState = {
       rating: 4,
       author: 'Danish Sheikh',
       body:
-        'A movie with unbelievable action scenes and packs almost every main-stream martial arts',
+        'A movie with unbelievable action scenes and packs almost every main-stream martial arts.',
       key: Math.random(),
     },
   ],

@@ -55,6 +55,7 @@ function Home({ navigation, reviews, addReviews }) {
             </Card>
           </TouchableOpacity>
         )}
+        showsVerticalScrollIndicator={false}
       />
 
       <MaterialIcons
