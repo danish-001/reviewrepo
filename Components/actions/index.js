@@ -1,4 +1,8 @@
-import { ADD_REVIEW, EDIT_REVIEW } from '../reducer/ReviewActionsTypes'
+import {
+  ADD_REVIEW,
+  EDIT_REVIEW,
+  DELETE_REVIEW,
+} from '../reducer/ReviewActionsTypes'
 
 export const addReviews = (payload = {}) => ({
   type: ADD_REVIEW,
@@ -8,4 +12,9 @@ export const addReviews = (payload = {}) => ({
 export const editReviews = (payload = {}) => ({
   type: EDIT_REVIEW,
   payload,
+})
+
+export const deleteReviews = (key) => ({
+  type: DELETE_REVIEW,
+  key,
 })

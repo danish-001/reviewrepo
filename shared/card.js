@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ScrollView } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 function Card(props) {
   return (
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     shadowColor: '#333',
     shadowOpacity: 0.3,
     shadowRadius: 2,
+    marginVertical: 8,
     marginHorizontal: 2,
-    marginVertical: 6,
   },
   cardContent: {
     marginHorizontal: 18,

@@ -8,24 +8,46 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import Card from '../shared/card'
 import { globalStyles } from '../styles/global'
 import ReviewForm from './reviewForm'
-import reviewsReducer from '../Components/reducer/reviewsReducer'
 
 import { connect } from 'react-redux'
-import { addReviews } from '../Components/actions'
+import { addReviews, deleteReviews } from '../Components/actions'
 
-function Home({ navigation, reviews, addReviews }) {
+function Home({ navigation, reviews, addReviews, deleteReviews }) {
   const [modelOpen, setModelOpen] = useState(false)
 
   const addReview = (review) => {
     review.key = Math.random().toString()
     addReviews({ review })
     setModelOpen(false)
+  }
+
+  const deleteReview = () => {
+    console.log('alert shown')
+    Alert.alert('Delete !!!', 'Do you want to delete this review ?', [
+      {
+        text: 'Yes',
+        onPress: () => {
+          console.log('Yes pressed')
+          deleteReviews()
+          console.log('review deleted')
+        },
+        style: 'destructive',
+      },
+      {
+        text: 'No',
+        onPress: () => {
+          console.log('No Pressed')
+        },
+        style: 'cancel',
+      },
+    ])
   }
 
   return (
@@ -49,6 +71,7 @@ function Home({ navigation, reviews, addReviews }) {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => navigation.navigate('ReviewDetail', item)}
+            onLongPress={() => deleteReview()}
           >
             <Card>
               <Text style={globalStyles.titleText}>{item.title}</Text>
@@ -94,6 +117,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   addReviews,
+  deleteReviews,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

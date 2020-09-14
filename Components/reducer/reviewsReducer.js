@@ -131,6 +131,22 @@ const reviewsReducer = (state = initialState, action) => {
         ...state,
         reviews: reviewsList,
       }
+    case types.DELETE_REVIEW:
+      return {
+        reviews: [...state.reviews.filter((review) => review !== action.key)],
+      }
+
+    // const newState = state.reviews.filter((review) => {
+    //   review !== action.key
+    // })
+    // return newState
+    // key = action.payload.key
+    // review = action.payload.review
+    // if (state.reviews) {
+    //   state.reviews.filter((review) => {
+    //     review !== action.payload.key
+    //   })
+    // }
     default:
       return { ...state }
   }
