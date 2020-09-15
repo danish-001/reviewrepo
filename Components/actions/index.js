@@ -14,7 +14,7 @@ export const editReviews = (payload = {}) => ({
   payload,
 })
 
-export const deleteReviews = (key) => ({
+export const deleteReviews = (payload = {}) => ({
   type: DELETE_REVIEW,
-  key,
+  payload,
 })

@@ -28,15 +28,13 @@ function Home({ navigation, reviews, addReviews, deleteReviews }) {
     setModelOpen(false)
   }
 
-  const deleteReview = () => {
+  const deleteReview = (key) => {
     console.log('alert shown')
     Alert.alert('Delete !!!', 'Do you want to delete this review ?', [
       {
         text: 'Yes',
         onPress: () => {
-          console.log('Yes pressed')
-          deleteReviews()
-          console.log('review deleted')
+          deleteReviews({ key })
         },
         style: 'destructive',
       },
@@ -71,7 +69,7 @@ function Home({ navigation, reviews, addReviews, deleteReviews }) {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => navigation.navigate('ReviewDetail', item)}
-            onLongPress={() => deleteReview()}
+            onLongPress={() => deleteReview(item.key)}
           >
             <Card>
               <Text style={globalStyles.titleText}>{item.title}</Text>

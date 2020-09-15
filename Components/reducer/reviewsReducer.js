@@ -132,8 +132,12 @@ const reviewsReducer = (state = initialState, action) => {
         reviews: reviewsList,
       }
     case types.DELETE_REVIEW:
+      const key = action.payload.key
+      const filterReview = state.reviews.filter((review) => review.key !== key)
+
       return {
-        reviews: [...state.reviews.filter((review) => review !== action.key)],
+        ...state,
+        reviews: filterReview,
       }
 
     // const newState = state.reviews.filter((review) => {
