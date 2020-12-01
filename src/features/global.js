@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { fonts } from '../Constants'
+import { fonts } from '../constants'
 
 export const globalStyles = StyleSheet.create({
   container: {
@@ -49,14 +49,14 @@ export const globalStyles = StyleSheet.create({
   },
 })
 
-export const RATE = require('../assets/2-star.png')
+export const RATE = require('../../assets/2-star.png')
 
 export const images = {
   ratings: {
-    1: require('../assets/1-star.png'),
-    2: require('../assets/2-star.png'),
-    3: require('../assets/3-star.png'),
-    4: require('../assets/4-star.png'),
-    5: require('../assets/5-star.png'),
+    1: require('../../assets/1-star.png'),
+    2: require('../../assets/2-star.png'),
+    3: require('../../assets/3-star.png'),
+    4: require('../../assets/4-star.png'),
+    5: require('../../assets/5-star.png'),
   },
 }

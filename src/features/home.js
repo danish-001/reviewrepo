@@ -12,12 +12,12 @@ import {
 } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
-import Card from '../shared/card'
-import { globalStyles } from '../styles/global'
+import Card from '../components/card'
+import { globalStyles } from './global'
 import ReviewForm from './reviewForm'
 
 import { connect } from 'react-redux'
-import { addReviews, deleteReviews } from '../Components/actions'
+import { addReviews, deleteReviews } from '../reducer/index'
 
 function Home({ navigation, reviews, addReviews, deleteReviews }) {
   const [modelOpen, setModelOpen] = useState(false)
@@ -66,6 +66,7 @@ function Home({ navigation, reviews, addReviews, deleteReviews }) {
 
       <FlatList
         data={reviews}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => navigation.navigate('ReviewDetail', item)}

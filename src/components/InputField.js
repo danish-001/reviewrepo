@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, TextInput, Text } from 'react-native'
-import { globalStyles } from '../styles/global'
+import { globalStyles } from '../features/global'
 
 const InputField = (props) => {
   const { placeholder, meta, input, multiline, height, keyboardType } = props

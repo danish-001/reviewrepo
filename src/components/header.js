@@ -17,7 +17,7 @@ export default function Header({ navigation, title }) {
 
   return (
     <ImageBackground
-      source={require('../assets/game_bg.png')}
+      source={require('../../assets/game_bg.png')}
       style={styles.header}
     >
       <MaterialIcons
@@ -28,7 +28,7 @@ export default function Header({ navigation, title }) {
       />
       <View style={styles.logoView}>
         <Image
-          source={require('../assets/logo.jpeg')}
+          source={require('../../assets/logo.jpeg')}
           style={styles.logoImage}
         />
         <Text style={styles.headerText}>{title}</Text>

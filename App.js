@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
 import { Provider } from 'react-redux'
-import store from './screens/store/store'
-import Navigator from './routes/drawer'
+import store from './src/store'
+import Navigator from './src/navigation/drawer'
 
 console.disableYellowBox = true
 

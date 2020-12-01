@@ -1,11 +1,9 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation-stack'
 
-import Home from '../screens/home'
-import ReviewDetail from '../screens/reviewDetails'
-import Header from '../shared/header'
-import { View, Text } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons'
+import Home from '../features/home'
+import ReviewDetail from '../features/reviewDetails'
+import Header from '../components/header'
 
 const screens = {
   Home: {

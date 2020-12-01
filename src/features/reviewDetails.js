@@ -11,11 +11,11 @@ import {
   ScrollView,
 } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
-import { globalStyles, images } from '../styles/global'
-import Card from '../shared/card'
+import { globalStyles, images } from './global'
+import Card from '../components/card'
 import ReviewForm from './reviewForm'
 import { connect } from 'react-redux'
-import { editReviews } from '../Components/actions/index'
+import { editReviews } from '../reducer/index'
 
 function ReviewDetails({ navigation, editReviews }) {
   const [modelOpen, setModelOpen] = useState(false)

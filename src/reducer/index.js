@@ -2,7 +2,7 @@ import {
   ADD_REVIEW,
   EDIT_REVIEW,
   DELETE_REVIEW,
-} from '../reducer/ReviewActionsTypes'
+} from './ReviewActionsTypes'
 
 export const addReviews = (payload = {}) => ({
   type: ADD_REVIEW,

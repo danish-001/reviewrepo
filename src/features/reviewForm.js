@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { ScrollView, View, KeyboardAvoidingView } from 'react-native'
-import { globalStyles } from '../styles/global'
+import { globalStyles } from './global'
 import { Field, reduxForm, change } from 'redux-form'
-import FlatButton from '../shared/button'
+import FlatButton from '../components/button'
 
-import InputField from '../Components/InputField'
-import { validate } from '../validation/validation'
+import InputField from '../components/InputField'
+import { validate } from '../reducer/validation'
 
 const ReviewComponent = ({
   addReview,
