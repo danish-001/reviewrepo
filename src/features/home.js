@@ -29,7 +29,6 @@ function Home({ navigation, reviews, addReviews, deleteReviews }) {
   }
 
   const deleteReview = (key) => {
-    console.log('alert shown')
     Alert.alert('Delete !!!', 'Do you want to delete this review ?', [
       {
         text: 'Yes',
@@ -50,7 +49,7 @@ function Home({ navigation, reviews, addReviews, deleteReviews }) {
 
   return (
     <View style={globalStyles.container}>
-      <Modal visible={modelOpen} animationType="slide">
+      <Modal visible={modelOpen} animationType="slide" statusBarTranslucent={true}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.modalContent}>
             <MaterialIcons
@@ -79,7 +78,6 @@ function Home({ navigation, reviews, addReviews, deleteReviews }) {
         )}
         showsVerticalScrollIndicator={false}
       />
-
       <MaterialIcons
         name="add"
         size={44}
@@ -96,12 +94,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#f2f2f2',
     borderRadius: 10,
-    padding: 10,
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   modalClose: {
     marginTop: 50,
     justifyContent: 'center',
+    padding: 10
   },
   modalContent: {
     flex: 1,

@@ -14,7 +14,7 @@ const flatButton = ({ text, onPress }) => {
 const styles = StyleSheet.create({
   button: {
     borderRadius: 8,
-    marginTop: 8,
+    marginTop: 14,
     paddingHorizontal: 14,
     paddingVertical: 10,
     backgroundColor: '#000',

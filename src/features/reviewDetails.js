@@ -69,7 +69,7 @@ function ReviewDetails({ navigation, editReviews }) {
         </Card>
 
         <View style={globalStyles.container}>
-          <Modal visible={modelOpen} animationType="slide">
+          <Modal visible={modelOpen} animationType="slide" statusBarTranslucent={true}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View style={styles.modalContent}>
                 <MaterialIcons
@@ -80,7 +80,6 @@ function ReviewDetails({ navigation, editReviews }) {
                 />
                 <ReviewForm
                   buttonTitle="UPDATE"
-                  // onPress={() => editReview()}
                   editReview={editReview}
                   defaultValues={values}
                 />
