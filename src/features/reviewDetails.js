@@ -7,7 +7,7 @@ import {
   Modal,
   TouchableWithoutFeedback,
   Keyboard,
-  Alert,
+  Animated,
   ScrollView,
 } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
@@ -17,8 +17,9 @@ import ReviewForm from './reviewForm'
 import { connect } from 'react-redux'
 import { editReviews } from '../reducer/index'
 
-function ReviewDetails({ navigation, editReviews }) {
+const ReviewDetails = ({ navigation, editReviews }) => {
   const [modelOpen, setModelOpen] = useState(false)
+  // const fadeIn = useState(new Animated.value(0))[0]
 
   const rating = navigation.getParam('rating')
 
@@ -40,54 +41,74 @@ function ReviewDetails({ navigation, editReviews }) {
     author: navigation.getParam('author'),
   }
 
+  // const fadeInEffect = () => {
+  //   Animated.timing(fadeIn, {
+  //     toValue: 1,
+  //     duration: 1500,
+  //     useNativeDriver: true,
+  //   }).start()
+  // }
+
   return (
     <ScrollView>
-      <View style={globalStyles.container}>
-        <Card>
-          <View style={globalStyles.editButtonView}>
-            <Text style={[globalStyles.titleText, globalStyles.title]}>
-              {navigation.getParam('title')}
-            </Text>
-            <MaterialIcons
-              name="edit"
-              size={32}
-              onPress={() => openEditModal()}
-            />
-          </View>
-          <Text style={globalStyles.titleText}>
-            {navigation.getParam('body')}
-          </Text>
-          <View>
-            <Text style={globalStyles.authorName}>
-              - {navigation.getParam('author')}
-            </Text>
-          </View>
-          <View style={styles.rating}>
-            <Text style={globalStyles.titleText}>Rating :-</Text>
-            <Image source={images.ratings[rating]} />
-          </View>
-        </Card>
-
+      <Animated.View
+        style={
+          {
+            // opacity: fadeIn
+          }
+        }
+      >
         <View style={globalStyles.container}>
-          <Modal visible={modelOpen} animationType="slide" statusBarTranslucent={true}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-              <View style={styles.modalContent}>
-                <MaterialIcons
-                  name="close"
-                  size={44}
-                  style={{ ...styles.modalToggle, ...styles.modalClose }}
-                  onPress={() => setModelOpen(false)}
-                />
-                <ReviewForm
-                  buttonTitle="UPDATE"
-                  editReview={editReview}
-                  defaultValues={values}
-                />
-              </View>
-            </TouchableWithoutFeedback>
-          </Modal>
+          <Card>
+            <View style={globalStyles.editButtonView}>
+              <Text style={[globalStyles.titleText, globalStyles.title]}>
+                {navigation.getParam('title')}
+              </Text>
+              <MaterialIcons
+                name="edit"
+                size={32}
+                onPress={() => openEditModal()}
+              />
+            </View>
+            <Text style={globalStyles.titleText}>
+              {navigation.getParam('body')}
+            </Text>
+            <View>
+              <Text style={globalStyles.authorName}>
+                - {navigation.getParam('author')}
+              </Text>
+            </View>
+            <View style={styles.rating}>
+              <Text style={globalStyles.titleText}>Rating :-</Text>
+              <Image source={images.ratings[rating]} />
+            </View>
+          </Card>
+
+          <View style={globalStyles.container}>
+            <Modal
+              visible={modelOpen}
+              animationType="slide"
+              statusBarTranslucent={true}
+            >
+              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View style={styles.modalContent}>
+                  <MaterialIcons
+                    name="close"
+                    size={44}
+                    style={{ ...styles.modalToggle, ...styles.modalClose }}
+                    onPress={() => setModelOpen(false)}
+                  />
+                  <ReviewForm
+                    buttonTitle="UPDATE"
+                    editReview={editReview}
+                    defaultValues={values}
+                  />
+                </View>
+              </TouchableWithoutFeedback>
+            </Modal>
+          </View>
         </View>
-      </View>
+      </Animated.View>
     </ScrollView>
   )
 }

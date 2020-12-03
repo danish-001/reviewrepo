@@ -22,7 +22,7 @@ export default function Header({ navigation, title }) {
     >
       <MaterialIcons
         name="menu"
-        size={22}
+        size={30}
         onPress={openMenu}
         style={styles.icon}
       />
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
+    flex: 1,
   },
   headerText: {
     fontWeight: 'bold',

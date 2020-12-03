@@ -49,7 +49,11 @@ function Home({ navigation, reviews, addReviews, deleteReviews }) {
 
   return (
     <View style={globalStyles.container}>
-      <Modal visible={modelOpen} animationType="slide" statusBarTranslucent={true}>
+      <Modal
+        visible={modelOpen}
+        animationType="slide"
+        statusBarTranslucent={true}
+      >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.modalContent}>
             <MaterialIcons
@@ -78,31 +82,45 @@ function Home({ navigation, reviews, addReviews, deleteReviews }) {
         )}
         showsVerticalScrollIndicator={false}
       />
-      <MaterialIcons
-        name="add"
-        size={44}
-        style={styles.modalToggle}
-        onPress={() => setModelOpen(true)}
-      />
+      <View style={styles.addButtonView}>
+        <MaterialIcons
+          name="add"
+          size={44}
+          style={[styles.modalToggle, { flex: 0.8 }]}
+          onPress={() => setModelOpen(true)}
+        />
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   modalToggle: {
-    marginTop: 2,
-    borderWidth: 1,
-    borderColor: '#f2f2f2',
-    borderRadius: 10,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   modalClose: {
+    borderWidth: 1,
+    borderColor: '#f2f2f2',
     marginTop: 50,
     justifyContent: 'center',
-    padding: 10
+    padding: 10,
   },
   modalContent: {
     flex: 1,
+  },
+  addButtonView: {
+    position: 'absolute',
+    flexDirection: 'column-reverse',
+    alignSelf: 'flex-end',
+    bottom: 60,
+    right: 12,
+    backgroundColor: '#f2f2f2',
+    height: 74,
+    width: 74,
+    borderRadius: 74,
+    shadowOffset: { width: 0, height: 2 },
+    shadowColor: 'grey',
+    shadowOpacity: 0.8,
   },
 })
 
